@@ -1,0 +1,44 @@
+import React, { useState } from "react";
+
+export default function App() {
+  // initializing a state for saving the counter variable
+  const [counter, setCounter] = useState(0);
+
+  // incrementing the counter after 2 sec
+  const increment = () => {
+    setTimeout(() => {
+      setCounter(counter + 1);
+    }, 2000);
+  };
+
+  // decrementing the counter after 1 sec
+  const decrement = () => {
+    setTimeout(() => {
+      if (counter === 0) {
+        return;
+      }
+      setCounter(counter - 1);
+    }, 1000);
+  };
+
+  return (
+    <div style={styles.root}>
+      <h1>{counter}</h1>
+      <button onClick={increment} style={styles.incrementBtnStyles}>
+        Increment
+      </button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+}
+
+// styles for the component
+const styles = {
+  root:{
+    fontFamily: 'sans-serif',
+    textAlign: 'center'
+  },
+  incrementBtnStyles: {
+    marginRight: "15px"
+  }
+};
